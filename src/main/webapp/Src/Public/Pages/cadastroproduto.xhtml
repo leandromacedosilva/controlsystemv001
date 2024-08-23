@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>controlsystem home page</title>
+        <link rel="stylesheet" href="./Src/Css/index.css" />
+        <link rel="stylesheet" href="../../Css/cadastroproduto.css" />
+    </h:head>
+    <h:body>
+        <header>
+            <img src="src" alt="corp-logo"/>
+            <nav>
+                <ul>
+                    <li><a href="#">Menu001</a></li>
+                    <li><a href="#">Menu002</a></li>
+                    <li><a href="#">Menu003</a></li>
+                    <li><a href="#">Menu004</a></li>
+                    <li><a href="#">Menu005</a></li>
+                </ul>
+            </nav>
+        </header>
+        <h:form>
+            <p:panel header="manager panel" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panel">
+                <h1>Panel gereciador</h1>  
+                <h:panelGrid columns="1">
+                    <p:inputText value="#{productManager.product.id}" placeholder="codigo produto" />
+                    <p:inputText value="#{productManager.product.codigoDeBarras}" placeholder="codigo de barras" />
+                    <p:inputText value="#{productManager.product.produto}" placeholder="Produto" />
+                    <p:inputText value="#{productManager.product.embalagem}" placeholder="Embalagem" />
+                    <p:inputText value="#{productManager.product.preco}" placeholder="Preco" />
+                    <p:inputText value="#{productManager.product.quantidade}" placeholder="Quantidade" />
+                    
+                </h:panelGrid>           
+                <p:commandButton value="Add" actionListener="#{productManager.addProduct()}" update="@form" icon="pi pi-plus"/>
+            </p:panel>
+            <p:dataTable var="pd" value="#{productManager.products}" >
+                    <p:column headerText="codigo produto">
+                        <p:outputLabel value="#{pd.id}"/>
+                    </p:column>
+                    <p:column headerText="codigo de barras">
+                        <p:outputLabel value="#{pd.codigoDeBarras}"/>
+                    </p:column>
+                    <p:column headerText="produto" >
+                        <p:outputLabel value="#{pd.produto}"/>
+                    </p:column>
+                    <p:column headerText="embalagem" >
+                        <p:outputLabel value="#{pd.embalagem}"/>
+                    </p:column>
+                    <p:column headerText="preco" >
+                        <p:outputLabel value="#{pd.preco}"/>
+                    </p:column>
+                    <p:column headerText="quantidade" >
+                        <p:outputLabel value="#{pd.quantidade}" />
+                    </p:column>
+                </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
