@@ -32,6 +32,26 @@ header {
     }
 }
 
+.btnAdd {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pg {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+@media (max-width: 1244px){
+    .pg {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 /*
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template

@@ -23,20 +23,21 @@
             </nav>
         </header>
         <h:form>
-            <p:panel header="manager panel" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panel">
-                <h1>Panel gereciador</h1>  
-                <h:panelGrid columns="1">
+            <p:panel header="Control System" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panel">
+                <h1>Cadastro de produtos</h1>  
+                <div class="pg">
                     <p:inputText value="#{productManager.product.id}" placeholder="codigo produto" />
                     <p:inputText value="#{productManager.product.codigoDeBarras}" placeholder="codigo de barras" />
                     <p:inputText value="#{productManager.product.produto}" placeholder="Produto" />
                     <p:inputText value="#{productManager.product.embalagem}" placeholder="Embalagem" />
                     <p:inputText value="#{productManager.product.preco}" placeholder="Preco" />
                     <p:inputText value="#{productManager.product.quantidade}" placeholder="Quantidade" />
-                    
-                </h:panelGrid>           
+                </div>
+                <div class="btnAdd">
                 <p:commandButton value="Add" actionListener="#{productManager.addProduct()}" update="@form" icon="pi pi-plus"/>
+                </div>
             </p:panel>
-            <p:dataTable var="pd" value="#{productManager.products}" >
+            <p:dataTable var="pd" value="#{productManager.products}" rows="3" paginator="true">
                     <p:column headerText="codigo produto">
                         <p:outputLabel value="#{pd.id}"/>
                     </p:column>
